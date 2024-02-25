@@ -13,7 +13,7 @@ package com.jenproject;
 public class App {
 	
  public static void main(String[] args) {
-	System.out.println("Welcome to COMP367");
+	System.out.println("Good morning Munish Bali");
 }
 
 }
