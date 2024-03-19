@@ -7,15 +7,33 @@ pipeline {
       }
     }
 
-    stage('second stage') {
+    stage('Build Maven Project') {
       steps {
-        sleep 100
+        sh 'mvn clean package'
       }
     }
 
-    stage('build') {
+    stage('Code Coverage ') {
       steps {
-        build(job: 'Job1 ', wait: true)
+        echo 'Code Coverage Stage'
+      }
+    }
+
+    stage('Docker build') {
+      steps {
+        build 'my-image:latest'
+      }
+    }
+
+    stage('Docker Login') {
+      steps {
+        sh 'docker login -u $USERNAME -p $PASSWORD'
+      }
+    }
+
+    stage('Docker push') {
+      steps {
+        sh 'docker push my-image:latest'
       }
     }
 
