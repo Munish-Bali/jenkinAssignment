@@ -32,5 +32,4 @@ pipeline {
                 sh 'docker push munish281997/my-img:latest .'
             }
         }
-    }
 }
