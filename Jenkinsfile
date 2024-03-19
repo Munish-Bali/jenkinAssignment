@@ -21,7 +21,7 @@ pipeline {
 
     stage('Docker build') {
       steps {
-        build 'my-image:latest'
+       sh 'docker build -t munish281997/my-image:latest .'
       }
     }
 
@@ -33,7 +33,7 @@ pipeline {
 
     stage('Docker push') {
       steps {
-        sh 'docker push my-image:latest'
+        sh 'docker push munish281997/my-image:latest'
       }
     }
 
